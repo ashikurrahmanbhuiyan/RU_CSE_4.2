@@ -1,0 +1,6 @@
+path: /content/face_dataset  # <-- Update path accordingly
+train: images/train
+val: images/val
+
+names:
+  0: face
