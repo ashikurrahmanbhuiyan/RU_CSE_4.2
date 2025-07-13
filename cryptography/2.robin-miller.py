@@ -6,14 +6,12 @@ def is_prime(n, k=5):
     if n <= 1 or n % 2 == 0:
         return False
 
-    # Step 1: Write n-1 as 2^s * d
     s = 0
     d = n - 1
     while d % 2 == 0:
         d //= 2
         s += 1
 
-    # Step 2: Witness loop
     for _ in range(k):
         a = random.randint(2, n - 2)
         x = pow(a, d, n)
