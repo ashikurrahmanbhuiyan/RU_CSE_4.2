@@ -24,10 +24,9 @@ def is_prime(n, k=5):
             if x == n - 1:
                 break
         else:
-            return False  # Composite
+            return False
 
-    return True  # Probably Prime
+    return True  
 
-# Test values
 for n in [3, 79, 70000009, 15, 37, 101, 221, 561, 1021, 2047]:
     print(f"{n}: {'Prime' if is_prime(n) else 'Not Prime'}")

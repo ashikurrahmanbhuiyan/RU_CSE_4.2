@@ -11,24 +11,24 @@ def read_key_from_file(file_path):
 
 
 def encrypt(message, key):
-    encrypted = [chr(ord(m) + k) for m, k in zip(message, key)]
+    encrypted = ''.join([chr((ord(m) + k-ord('A')+1)) for m, k in zip(message, key)])
     return encrypted
 
 def decrypt(ciphertext, key):
-    decrypted = ''.join([chr(ord(c) - k) for c, k in zip(ciphertext, key)])
+    decrypted = ''.join([chr(ord(c) - k + ord('A')-1) for c, k in zip(ciphertext, key)])
     return decrypted
 
 
-message = "HELLO"
+message = "HELLOZ"
 print("Original Message:", message)
 
 key1 = read_key_from_file('cryptography/encrypt_key.txt')
 key2 = read_key_from_file('cryptography/decrypt_key.txt')
 
-# Encrypt
-ciphertext = encrypt(message, key1)
-print("Encrypted Message (bytes):", ciphertext)
 
-# Decrypt
+ciphertext = encrypt(message, key1)
+print("Encrypted Message :", ciphertext)
+
+
 decrypted_message = decrypt(ciphertext, key2)
 print("Decrypted Message:", decrypted_message)
