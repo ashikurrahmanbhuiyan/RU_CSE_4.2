@@ -1,0 +1,9 @@
+generate 3 different signal
+a.a 10 hz sine wave
+b.1 10hz sqaure wave
+c.a 20hz sine wave
+compute and plot
+*.auto correlation a
+*.cross correlation(between a and b)
+*cross correlation(a &c)
+generate numpy code for it...clean working easy code..
