@@ -1,0 +1,2 @@
+1.what is the difference between svm and logistics regression
+2.what is kernal, can all function can be used as kernal.

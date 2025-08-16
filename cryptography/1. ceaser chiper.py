@@ -20,3 +20,7 @@ deciphered = caesar_decrypt(ciphered)
 print("Original Plaintext: ", plaintext)
 print("Caesar Ciphered   : ", ciphered)
 print("Decrypted Back    : ", deciphered)
+
+
+# Example to show the ASCII value of 'k'
+print(chr(ord('k')+1))  # Example to show the ASCII value of 'k'

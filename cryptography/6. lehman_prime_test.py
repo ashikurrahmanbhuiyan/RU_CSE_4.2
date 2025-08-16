@@ -44,7 +44,7 @@ def lehmann_primality_test(n, k=10):
     return True
 
 
-num = 1
+num = 10085476457653
 if lehmann_primality_test(num):
     print(f"{num} is probably prime.")
 else:

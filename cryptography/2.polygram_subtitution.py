@@ -1,39 +1,37 @@
-import random
-import string
-
 def chunk_text(text, size):
-    # Pad with spaces to make text divisible by block size
-    while len(text) % size != 0:
-        text += ' '
     return [text[i:i+size] for i in range(0, len(text), size)]
 
-def generate_dynamic_mapping(blocks):
-    unique_blocks = set(blocks)
-    shuffled = list(unique_blocks)
-    random.shuffle(shuffled)
+# Sample plaintext
+plaintext = "HELLOWORLD"
 
-    mapping = dict(zip(unique_blocks, shuffled))
-    return mapping
+# Block size
+block_size = 3
 
-def polygram_encrypt(text, block_size=3):
-    blocks = chunk_text(text.lower(), block_size)
-    mapping = generate_dynamic_mapping(blocks)
-    cipher_blocks = [mapping[block] for block in blocks]
-    cipher_text = ''.join(cipher_blocks)
-    return cipher_text, mapping  # return mapping to use for decryption
+# Step 1: Break into 3-letter blocks
+blocks = chunk_text(plaintext, block_size)
 
-def polygram_decrypt(cipher_text, mapping, block_size=3):
-    reverse_mapping = {v: k for k, v in mapping.items()}
-    blocks = chunk_text(cipher_text, block_size)
-    original_blocks = [reverse_mapping[block] for block in blocks]
-    return ''.join(original_blocks).strip()
+# Step 2: Define substitution mapping (for demo purposes)
+substitution_map = {
+    'HEL': 'QWE',
+    'LOW': 'RTY',
+    'ORL': 'UIO',
+    'D': 'P' 
+}
 
-# 🧪 Example
-plaintext = "i love you"
-ciphertext, mapping = polygram_encrypt(plaintext, block_size=3)
-recovered = polygram_decrypt(ciphertext, mapping, block_size=3)
+# Create reverse mapping for decryption
+reverse_map = {v: k for k, v in substitution_map.items()}
 
-print("Plaintext   :", plaintext)
-print("Ciphertext  :", ciphertext)
-print("Decrypted   :", recovered)
-print("Mapping     :", mapping)
+# Step 3: Encrypt
+cipher_blocks = [substitution_map.get(block, '???') for block in blocks]
+ciphertext = ''.join(cipher_blocks)
+
+# Step 4: Decrypt
+decrypted_blocks = [reverse_map.get(block, '???') for block in cipher_blocks]
+decrypted_text = ''.join(decrypted_blocks)
+
+# Output
+print("Plaintext:     ", plaintext)
+print("Blocks:        ", blocks)
+print("Cipher Blocks: ", cipher_blocks)
+print("Ciphertext:    ", ciphertext)
+print("Decrypted:     ", decrypted_text)
