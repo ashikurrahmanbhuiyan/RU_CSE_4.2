@@ -1,4 +1,3 @@
-import math
 
 def encrypt_transposition(plaintext, width):
     # Step 1: Remove spaces (optional)

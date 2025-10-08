@@ -18,7 +18,7 @@ def decrypt_transposition(ciphertext, width):
     for i in range(num_rows):
         for col in columns:
             plaintext += col[i]
-    return plaintext.rstrip('X')
+    return plaintext
 
 # ======================
 # DOUBLE TRANSPOSITION
