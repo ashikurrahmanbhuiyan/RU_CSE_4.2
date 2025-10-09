@@ -1,0 +1,27 @@
+# Core data science and machine learning libraries
+numpy
+pandas
+matplotlib
+seaborn
+
+# Scikit-learn and related ML libraries
+scikit-learn
+
+# Statistical modeling
+statsmodels
+
+# Additional ML utilities
+mglearn
+
+# Jupyter notebook support
+jupyter
+ipykernel
+
+# Optional: For better plotting and visualization
+plotly
+
+# Optional: For advanced ML (uncomment if needed)
+# tensorflow
+# torch
+# xgboost
+# lightgbm
